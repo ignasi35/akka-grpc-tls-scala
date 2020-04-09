@@ -1,4 +1,4 @@
-name := "akka-grpc-quickstart-scala"
+name := "akka-grpc-tls-scala"
 
 version := "1.0"
 
@@ -9,14 +9,14 @@ lazy val akkaGrpcVersion = "0.8.4"
 
 enablePlugins(AkkaGrpcPlugin)
 
+enablePlugins(JavaAppPackaging)
+
 // ALPN agent
 enablePlugins(JavaAgent)
-javaAgents += "org.mortbay.jetty.alpn" % "jetty-alpn-agent" % "2.0.7" % "runtime;test"
+javaAgents += "org.mortbay.jetty.alpn" % "jetty-alpn-agent" % "2.0.10" % "runtime;test"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-discovery" % akkaVersion,
   "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % "test",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
-
-enablePlugins(JavaAppPackaging)
