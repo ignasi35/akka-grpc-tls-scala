@@ -20,3 +20,10 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % "test",
   "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
+
+Compile / run / fork := true
+Compile / run / javaOptions ++= Seq(
+  "-Djavax.net.ssl.trustStore=/Users/ignasi/git/github/ignasi35/akka-grpc-tls-scala/master/src/main/resources/exampletrust.p12",
+  "-Djavax.net.ssl.trustStorePassword=changeit",
+//  "-Djavax.net.debug=all"
+)
